@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #faf9f6;
+  color: #2e2e2e;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header {
+  background: linear-gradient(135deg, #6a8caf, #aac9d9);
+  color: #fff;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  clip-path: ellipse(100% 80% at 50% 20%);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-family: "Merriweather", serif;
+  font-size: 3.2rem;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  font-weight: 600;
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-bottom: 1.7rem;
+}
+
+header img {
+  max-width: 220px;
+  width: 80vw;
+  border-radius: 20px;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+  border: 5px solid rgba(255 255 255 / 0.25);
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+section {
+  background: white;
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  color: #36648b;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #aac9d9;
+  padding-bottom: 0.3rem;
+}
+
+section p,
+section ul {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #444444;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.7rem;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(255 255 255 / 0.9);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 0 12px;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #36648b;
+  margin-left: 1.2rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  color: #274a66;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 25;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger div {
+  width: 28px;
+  height: 3px;
+  background: #36648b;
+  border-radius: 3px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 414px) {
+  nav {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255 255 255 / 0.95);
+    padding: 0.5rem 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: auto;
+    gap: 0;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: 1rem;
+    background: white;
+    flex-direction: column;
+    width: 180px;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 19;
+  }
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  nav a {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #999;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  section {
+    padding: 1.5rem 1.7rem;
+  }
+}
